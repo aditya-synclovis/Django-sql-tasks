@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "92edbd7e-19cb-4f41-a9ae-541b66472456",
+		"name": "tasks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19099621",
+		"_collection_link": "https://clovis-4765.postman.co/workspace/clovis~fae4a6dc-5776-4b84-a308-c50263f7a84a/collection/19099621-92edbd7e-19cb-4f41-a9ae-541b66472456?action=share&source=collection_link&creator=19099621"
+	},
+	"item": [
+		{
+			"name": "Task1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "start_date",
+							"value": "\"2025-06-01\"",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/task3/HospitalResource?start_date=2024-06-01&end_date=2026-06-01",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"task3",
+						"HospitalResource"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2024-06-01"
+						},
+						{
+							"key": "end_date",
+							"value": "2026-06-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task2",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Task6",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/task6/InvSup",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"task6",
+						"InvSup"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

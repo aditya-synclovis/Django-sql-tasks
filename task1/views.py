@@ -7,6 +7,7 @@ from django.views.decorators.http import require_http_methods
 import logging
 from utils.fetch_query_sql import fetch_query
 from utils.list_to_dict import columns_to_dict
+from task1.orm_query import sales_report
 logger = logging.getLogger(__name__)
 
 @require_http_methods(["GET"])
@@ -15,6 +16,13 @@ def task1(request):
     Task 1 :- E-Commerce Order Analysis
     """
     try:
+        conf_query="""
+                        SET SESSION sql_mode = 'NO_ENGINE_SUBSTITUTION';
+                        SET GLOBAL sql_mode = 'NO_ENGINE_SUBSTITUTION';
+                        SELECT @@sql_mode;
+                        """
+        # Hit the query
+        fetch_query(conf_query,logger)
         query = """
             select p.category AS category,
                 DATE_FORMAT(o.order_date, '%Y-%m') AS month,
@@ -46,3 +54,8 @@ def task1(request):
             'success': False,
             'error': f"{str(e)}"
         }, status=500)
+
+@require_http_methods(["GET"])
+def task1_orm(request):
+    results = list(sales_report)
+    return JsonResponse(results, safe=False)
